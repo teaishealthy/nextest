@@ -4,6 +4,8 @@
 
 *still in early development*
 
+*development currently stalled due to ncv3*
+
 Testing Framework for nextcord **v3**
 
 
