@@ -28,16 +28,14 @@ class Framework:
         kwargs["type_sheet"] = cls.type_sheet
 
         client = Client(*args, **kwargs)
-        self = cls(client)
-        return self
+        return cls(client)
 
     @classmethod
     def modify(cls: Type[T], client: Client) -> T:
         """Modifies the client state to use FakeHTTP and FakeGateway"""
         client.state.gateway = cls.type_sheet.gateway(client.state)
         client.state.http = cls.type_sheet.http_client(client.state)
-        self = cls(client)
-        return self
+        return cls(client)
 
     def run(self, *args, **kwargs) -> None:
         self.client.run(*args, **kwargs)
